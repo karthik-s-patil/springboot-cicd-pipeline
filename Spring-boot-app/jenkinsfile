@@ -18,6 +18,7 @@ pipeline{
                 dir('Spring-boot-app'){
                 bat 'docker build -t spring .'
             }
+          }
         }
 
         stage('Deploy'){
@@ -28,4 +29,5 @@ docker run -d -p 8081:8080 --name spring-app-container spring-app'''
             }
         }
     }
+}
 }
