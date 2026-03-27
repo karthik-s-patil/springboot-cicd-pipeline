@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    stages{
+        stage('Checkout'){
+            steps{
+                git 'https://github.com/karthik-s-patil/springboot-cicd-pipeline.git'
+            }
+        }
+        stage('Build'){
+            steps{
+                bat 'mvn clean package'
+            }
+        }
+        stage('Docker build'){
+            steps{
+                bat 'docker build -t spring .'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                bat '''docker rm -f spring-app-container || true
+docker run -d -p 8081:8080 --name spring-app-container spring-app'''
+            }
+        }
+    }
+}
