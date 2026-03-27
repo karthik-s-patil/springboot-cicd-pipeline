@@ -16,7 +16,7 @@ pipeline{
         stage('Docker build'){
             steps{
                 dir('Spring-boot-app'){
-                bat 'docker build -t spring .'
+                bat 'docker build -t spring-app .'
             }
           }
         }
