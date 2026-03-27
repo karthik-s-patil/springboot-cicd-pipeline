@@ -13,8 +13,6 @@ pipeline{
         }
     }
 }
-            }
-        }
         stage('Docker build'){
             steps{
                 bat 'docker build -t spring .'
