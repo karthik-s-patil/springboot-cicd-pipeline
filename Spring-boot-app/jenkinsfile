@@ -8,7 +8,11 @@ pipeline{
         }
         stage('Build'){
             steps{
+                dir('Spring-boot-app') {
                 bat 'mvn clean package'
+        }
+    }
+}
             }
         }
         stage('Docker build'){
